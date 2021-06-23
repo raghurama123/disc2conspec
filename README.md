@@ -1,7 +1,7 @@
 # disc2conspec
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Fortran90 | GNUPLOT](https://img.shields.io/badge/Language-Fortran90-red.svg)](https://en.wikipedia.org/wiki/Fortran)
+[![Fortran90|GNUPLOT](https://img.shields.io/badge/Language-Fortran90|GNUPLOT-red.svg)](https://en.wikipedia.org/wiki/Fortran)
 
 
 This program reads a file with discrete values of excitation energies and oscillator strengths and prints a continuous spectrum in nm for plotting.
