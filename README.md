@@ -21,7 +21,7 @@ This program reads a file with discrete values of excitation energies and oscill
     argument-2 is choice of units. Allowed values are 'au2nm', 'ev2nm', 'cmi2nm', 'nm'
 
 # Sample execution - 1 
-#### Read energies in eV, see the contents of directory example_01
+#### Read energies in eV, see ![example_01](https://github.com/raghurama123/disc2conspec/tree/main/example_01)
 
     raghurama$ ./disc2conspec.x inp.txt ev2nm
     
