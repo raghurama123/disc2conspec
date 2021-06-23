@@ -5,7 +5,7 @@ program spectrum
   character(len=100)            :: filename, units, arg
                                 
   integer                       :: rwstat, i_line, N_lines
-  double precision              :: Ek, Ek_ev, Ek_cmi, E_nm, eps_total
+  double precision              :: Ek, eps_total
   double precision, allocatable :: Ek_nm(:), fk(:)
   double precision, external    :: eps_k
   double precision, parameter   :: ev2cmi =   8065.54464585453d0
