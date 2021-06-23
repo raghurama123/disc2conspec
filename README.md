@@ -14,7 +14,10 @@ This program reads a file with discrete values of excitation energies and oscill
 
     ./disc2conspec.x     argument-1     argument-2
     
-    argument-1 is the name of a file containing the discrete data in two columns. Column-1 contains excitation energies and column-2 contains the corresponding oscillator strength.
+    argument-1 is the name of a file containing the discrete data in two columns. 
+               Column-1 contains excitation energies and column-2 contains the corresponding 
+               oscillator strength.
+               
     argument-2 is choice of units. Allowed values are 'au2nm', 'ev2nm', 'cmi2nm', 'nm'
 
 # Sample execution - 1 
