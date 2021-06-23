@@ -21,6 +21,12 @@ This program reads a file with discrete values of excitation energies and oscill
     argument-2 is choice of units. Allowed values are 'au2nm', 'ev2nm', 'cmi2nm', 'nm'
 
 # Sample execution - 1 
-#### Read energies in eV, see the directory example_01
+#### Read energies in eV, see the contents of directory example_01
 
     raghurama$ ./disc2conspec.x inp.txt ev2nm
+    
+    generates the files spectrum.dat, spectrumstick.dat containing continuous and discrete energies in nm.
+    
+    raghurama$ gnuplot plot.gp 
+    
+    generates spectrum.eps that looks as follows
