@@ -31,4 +31,4 @@ This program reads a file with discrete values of excitation energies and oscill
     
     generates spectrum.eps that looks as follows
     
-![plot](https://github.com/raghurama123/disc2conspec/tmp/spectrum.png)
+![](https://github.com/raghurama123/disc2conspec/blob/main/tmp/spectrum.png)
