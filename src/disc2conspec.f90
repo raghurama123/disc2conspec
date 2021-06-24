@@ -27,11 +27,11 @@ program spectrum
 
   open(unit=10, file=trim(filename))
   N_lines=0
-  l1: do 
+  loop1: do 
       read(10,*,iostat=rwstat)Ek, Ek
-      if ( rwstat .ne. 0) exit l1
+      if ( rwstat .ne. 0) exit loop1
       N_lines=N_lines+1
-  enddo l1
+  enddo loop1
   close(10)
   
   allocate(Ek_nm(1:N_lines), fk(1:N_lines))
@@ -56,15 +56,15 @@ program spectrum
 
   open(unit=10, file='spectrum.dat')
   E_nm   = 0d0
-  loop1: do
-    if ( E_nm .gt. 500d0 ) exit loop1
+  loop2: do
+    if ( E_nm .gt. 500d0 ) exit loop2
     eps_total = 0.0d0
     do i_line = 1, N_lines
       eps_total = eps_total + eps_k(Ek_nm(i_line), fk(i_line), E_nm, sigma)
     enddo
     E_nm = E_nm + 0.01d0
     write(10,'(2f15.8)') E_nm, eps_total
-  enddo loop1
+  enddo loop2
   close(10)
 
   open(unit=10, file='spectrumstick.dat')
