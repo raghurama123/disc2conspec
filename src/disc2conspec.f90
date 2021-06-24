@@ -71,6 +71,8 @@ end program spectrum
 
 
 double precision function eps_k(Ek_nm, fk, E_nm)
+  
+  implicit none
 
   double precision, intent(in) :: Ek_nm, fk, E_nm
 
