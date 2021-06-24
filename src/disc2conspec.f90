@@ -93,4 +93,4 @@ double precision function eps_k(Ek_nm, fk, E_nm, sigma_ev)
 
   eps_k = 1.3062974d8 * (fk/sigma_nm) * dexp(-((1d0/E_nm-1d0/Ek_nm)/(1.0d0/sigma_nm))**2)
 
-end function
+end function eps_k
