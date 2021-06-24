@@ -5,7 +5,7 @@ program spectrum
   character(len=100)            :: filename, units, arg
                                 
   integer                       :: rwstat, i_line, N_lines
-  double precision              :: Ek, eps_total, E_nm
+  double precision              :: Ek, eps_total, E_nm, sigma
   double precision, allocatable :: Ek_nm(:), fk(:)
   double precision, external    :: eps_k
   double precision, parameter   :: ev2cmi =   8065.54464585453d0
@@ -16,6 +16,14 @@ program spectrum
 
   call getarg(2, arg)
   units=trim(arg)
+
+  call getarg(3, arg)
+  open(unit=10, file='scr')
+  write(10,*)trim(arg)
+  close(10)
+  open(unit=10, file='scr')
+  read(10,*)sigma
+  close(10)
 
   open(unit=10, file=trim(filename))
   N_lines=0
@@ -52,7 +60,7 @@ program spectrum
     if ( E_nm .gt. 500d0 ) exit loop1
     eps_total = 0.0d0
     do i_line = 1, N_lines
-      eps_total = eps_total + eps_k(Ek_nm(i_line), fk(i_line), E_nm)
+      eps_total = eps_total + eps_k(Ek_nm(i_line), fk(i_line), E_nm, sigma)
     enddo
     E_nm = E_nm + 0.01d0
     write(10,'(2f15.8)') E_nm, eps_total
@@ -70,16 +78,18 @@ program spectrum
 end program spectrum
 
 
-double precision function eps_k(Ek_nm, fk, E_nm)
+double precision function eps_k(Ek_nm, fk, E_nm, sigma_ev)
   
   implicit none
 
-  double precision, intent(in) :: Ek_nm, fk, E_nm
+  double precision, intent(in) :: Ek_nm, fk, E_nm, sigma_ev
 
   double precision, parameter  :: ev2cmi =  8065.54464585453d0
-  double precision, parameter  :: sigma_ev = 0.4d0
-  double precision, parameter  :: sigma_cmi = sigma_ev * ev2cmi
-  double precision, parameter  :: sigma_nm = 1d7 / sigma_cmi
+  !double precision, parameter  :: sigma_ev = 0.4d0
+  double precision             :: sigma_cmi, sigma_nm
+
+  sigma_cmi = sigma_ev * ev2cmi
+  sigma_nm = 1d7 / sigma_cmi
 
   eps_k = 1.3062974d8 * (fk/sigma_nm) * dexp(-((1d0/E_nm-1d0/Ek_nm)/(1.0d0/sigma_nm))**2)
 
