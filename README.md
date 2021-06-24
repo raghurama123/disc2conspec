@@ -12,18 +12,20 @@ This program reads a file with discrete values of excitation energies and oscill
 
 # How to run? 
 
-    ./disc2conspec.x     argument-1     argument-2
+    ./disc2conspec.x     argument-1     argument-2     argument-3
     
     argument-1 is the name of a file containing the discrete data in two columns. 
-               Column-1 contains excitation energies and column-2 contains the corresponding 
-               oscillator strength.
+               -- Column-1 contains excitation energies
+               -- Column-2 contains the corresponding oscillator strength
                
     argument-2 is choice of units. Allowed values are 'au2nm', 'ev2nm', 'cmi2nm', 'nm'
+    
+    argument-2 is the width of Gaussian functions used for broadening, in eV
 
 # Sample execution - 1 
 #### Read energies in eV, see ![example_01](https://github.com/raghurama123/disc2conspec/tree/main/example_01)
 
-    raghurama$ ./disc2conspec.x inp.txt ev2nm
+    raghurama$ ./disc2conspec.x inp.txt ev2nm 0.4
     
     generates the files spectrum.dat, spectrumstick.dat containing continuous and discrete energies in nm.
     
